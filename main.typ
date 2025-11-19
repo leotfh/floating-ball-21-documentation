@@ -49,7 +49,7 @@
 #set text(
   font: "Arial", // Oder "Roboto", "Liberation Sans"
   size: 11pt,
-  lang: "de"
+  lang: "en"
 )
 
 // Layout für bessere Lesbarkeit (White space [cite: 5])
@@ -130,7 +130,7 @@
 ]
 
 #pagebreak()
-#outline(indent: auto, title: "Table of Contents")
+#outline(indent: auto)
 #pagebreak()
 
 // 1. Nummerierungs-Stil auf Arabisch (1, 2, 3) setzen
@@ -176,7 +176,7 @@ Here is an example that shows how to include technical code or diagrams, as requ
   radius: 4pt,
   width: 100%,
   [
-    *Beispiel Code (C++):*
+    *Example Code (C++):*
     #set text(font: "Courier New", size: 10pt)
     ```cpp
     void setup() {
@@ -190,8 +190,8 @@ Here is an example that shows how to include technical code or diagrams, as requ
 Images are centered and the numbering should be bold:
 
 #figure(
-  rect(width: 80%, height: 3cm, fill: rgb(230, 240, 230), radius: 5pt)[
-    #align(center + horizon, text(fill: dept-color)[*Insert circuit diagram here*])
+  rect(width: 80%, height: 5cm, fill: light-grey, radius: 20pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("Cascade.jpg", width: 80%)])
   ],
   caption: [Block diagram of the circuit],
 )
