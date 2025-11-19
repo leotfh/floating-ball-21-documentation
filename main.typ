@@ -23,7 +23,7 @@
       // Links: Department Name in der Abteilungsfarbe
       align(left, text(fill: dept-color, weight: "bold")[Department Electronic & Computer Engineering]),
       // Rechts: Gruppenname
-      align(right, [Gruppe Floating Ball 2.1]), 
+      align(right, [Group Floating Ball 2.1]), 
     )
     v(-6pt)
     // Linie in der Abteilungsfarbe für Kohärenz 
@@ -99,7 +99,7 @@
 #align(center + horizon)[
   // Logo Platzhalter (oder Text)
   #image(
-    "IEE_RGB.png",
+    "img/general/IEE_RGB.png",
     width: 10cm,
     height: 2cm,
     alt: "FH Logo Placeholder"
@@ -113,7 +113,7 @@
   
   #v(2cm)
   
-  #text(size: 24pt, weight: "bold")[Projekt Dokumentation] \
+  #text(size: 24pt, weight: "bold")[Project Documentation] \
   #v(0.5cm)
   #text(size: 16pt)[Floating Ball 2.1]
   
@@ -123,14 +123,14 @@
     columns: (auto, auto),
     gutter: 1em,
     align: left,
-    strong("Autoren:"), [Max Dandler \ Lucas Fink \ Anto Dzicic \ Kristian Seiner \ Leo Traußnigg],
-    strong("Abgabe:"), [19. November 2025],
+    strong("Authors:"), [Max Dandler \ Lucas Fink \ Anto Dzicic \ Kristian Seiner \ Leo Traußnigg],
+    strong("Deadline:"), [19. November 2025],
     strong("Version: "), [1.0]
   )
 ]
 
 #pagebreak()
-#outline(indent: auto)
+#outline(indent: auto, title: "Table of Contents")
 #pagebreak()
 
 // 1. Nummerierungs-Stil auf Arabisch (1, 2, 3) setzen
@@ -167,7 +167,7 @@ The required Add-Ons for MATLAB and Simulink can be found in the following list:
 ==	Configuring Simulink
 =	Operating the Floating Ball System 
 ==	Building, Deploying, and Starting the Model 
-Hier ein Beispiel, wie technischer Code oder Diagramme eingebunden werden, wie es für die Dokumentation notwendig sein wird.
+Here is an example that shows how to include technical code or diagrams, as required for the documentation.
 
 // Beispiel für eine Code-Box (wichtig für ECE)
 #block(
@@ -187,13 +187,13 @@ Hier ein Beispiel, wie technischer Code oder Diagramme eingebunden werden, wie e
 )
 
 === Schaltpläne und Bilder
-Bilder werden zentriert und mit einer Beschriftung versehen.
+Images are centered and the numbering should be bold:
 
 #figure(
   rect(width: 80%, height: 3cm, fill: rgb(230, 240, 230), radius: 5pt)[
-    #align(center + horizon, text(fill: dept-color)[*Hier Schaltplan einfügen*])
+    #align(center + horizon, text(fill: dept-color)[*Insert circuit diagram here*])
   ],
-  caption: [Blockdiagramm der Schaltung],
+  caption: [Block diagram of the circuit],
 )
 
 #lorem(60)
