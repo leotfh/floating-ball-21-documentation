@@ -23,24 +23,37 @@
       // Links: Department Name in der Abteilungsfarbe
       align(left, text(fill: dept-color, weight: "bold")[Department Electronic & Computer Engineering]),
       // Rechts: Gruppenname
-      align(right, [Group Floating Ball 2.1]), 
+      align(right, [Group C]), 
     )
     v(-6pt)
     // Linie in der Abteilungsfarbe für Kohärenz 
     line(length: 100%, stroke: 1pt + dept-color) 
   },
 
-  // FOOTER
+  // Footer Definition
   footer: context {
-    set text(size: 9pt, fill: dark-grey)
+    set text(size: 9pt, fill: rgb(60, 60, 60)) // Dunkelgrau
     line(length: 100%, stroke: 0.5pt + gray)
+    
+    // 1. Suche alle Überschriften (Level 1) VOR der aktuellen Position
+    let headers = query(heading.where(level: 1).before(here()))
+    
+    // 2. Nimm den Text der letzten gefundenen Überschrift (oder leer, falls keine da ist)
+    let current-chapter = if headers.len() > 0 {
+      headers.last().body
+    } else {
+      [] 
+    }
+
+    // 3. Anzeige im Grid
     grid(
       columns: (1fr, 1fr, 1fr),
-      align(left, [Continuous Assessment 2025/26]),
-      align(center, []),
+      align(left, [Floating Ball 2.1]), 
+      align(center, text(style: "italic")[#current-chapter]), // <--- HIER wird es angezeigt
       align(right, counter(page).display())
     )
   }
+
 )
 #set page(numbering: "i")
 #set heading(numbering: "1.1")
@@ -186,7 +199,7 @@ Here is an example that shows how to include technical code or diagrams, as requ
   ]
 )
 
-=== Schaltpläne und Bilder
+=== Diagrams and Schematics
 Images are centered and the numbering should be bold:
 
 #figure(
@@ -201,6 +214,33 @@ Images are centered and the numbering should be bold:
 ==	Launching the Graphical User Interface (GUI) 
 ==	Using the GUI Controls 
 == Adjusting Controller Parameters
+#figure(
+  table(
+    columns: (auto, 2fr, 1fr, auto),
+    inset: 10pt,
+    align: (x, y) => (left, left, center, right).at(x),
+    stroke: none, // Keine Gitterlinien für modernen Look
+    
+    // Zebra-Striping: Jede zweite Zeile hellgrau, Header in Abteilungsfarbe
+    fill: (x, y) => 
+      if y == 0 { dept-color.lighten(80%) } 
+      else if calc.even(y) { light-grey } 
+      else { white },
+
+    // Header
+    [*Komponente*], [*Beschreibung*], [*Menge*], [*Preis*],
+    
+    // Daten
+    [Arduino Uno R4], [Minima (no WIFI / BLE)], [2], [18,50 €],
+    [Motor], [PWM], [2], [32,20 €],
+    [Other], [Wires, etc.], [2], [3,90 €],
+    
+    // Footer-Zeile (Optional)
+    table.hline(stroke: 1pt + dept-color),
+    [**Total**], [], [], [**109,20 €**]
+  ),
+  caption: [BOM for the Prototype],
+)
 =	Troubleshooting and Future Development 
 ==	Known Issues 
 ===	 GUI Bugs 
