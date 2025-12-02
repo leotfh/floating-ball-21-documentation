@@ -17,13 +17,16 @@ This project aims to show the principles of control engineering using a floating
     [*Component*], [*Description*], [*Quantity*], [*Price*],
     
     // Data
-    [Arduino Uno R4], [Minima (no WIFI / BLE)], [2], [18,50 €],
-    [Motor], [PWM], [2], [32,20 €],
-    [Other], [Wires, etc.], [2], [3,90 €],
+    [Microcontroller], [Arudino Uno R4 Minima], [1], [20,72 €],
+    [PWM Motor], [SAN ACE B97], [1], [32,20 €],
+    [Distance Sensor], [VL53L1X TOF Sensor], [1], [16,50€],
+    [Tube], [height variable], [1], [insert price here],
+    [Potentiometer], [Bourns Potentiometer], [1], [5,50€], 
+    [Other], [Wires, etc.], [1], [3,90 €],
     
     // Footer
     table.hline(stroke: 1pt + dept-color),
-    [*Total*], [], [], [*109,20 €*]
+    [*Total*], [], [], [*insert totatl here*]
   ),
   caption: [BOM for the Prototype],
 )
