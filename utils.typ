@@ -3,6 +3,9 @@
 #let dark-grey = rgb(60, 60, 60)
 #let light-grey = rgb(245, 245, 245)
 
+#let marker(body) = highlight(fill: yellow.lighten(50%), body)
+
+
 #let project-title = "Floating Ball 2.1 Documentation"
 
 #let project-layout(doc) = {
