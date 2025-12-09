@@ -1,8 +1,11 @@
 #import "../utils.typ": *
 
 =	Operating the Floating Ball System 
-==	Building, Deploying, and Starting the Model 
-Here is an example that shows how to include technical code or diagrams, as required for the documentation.
+==	Building, Deploying, and Starting the Model
+After opening the model the model must be built and deployed. This can be done automatically or manually.
+
+=== Building and Deploying automatically
+The easiest way to build the model and flash it onto the Arduino Uno R4 Minima is to type "main" into the MATLAB Command Window. This lets a pop-up window appear, which asks the user what should be done. The available options #marker[as shown in the picuture below] are "Build and Deploy", "Start GUI only" and "Cancel".
 
 #block(
   fill: light-grey,
@@ -29,8 +32,6 @@ Images are centered and the numbering should be bold:
   ],
   caption: [Block diagram of the circuit],
 )
-
-#lorem(60)
 
 ==	Launching the Graphical User Interface (GUI) 
 ==	Using the GUI Controls 
