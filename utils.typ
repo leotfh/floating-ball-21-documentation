@@ -5,7 +5,6 @@
 
 #let marker(body) = highlight(fill: yellow.lighten(50%), body)
 
-
 #let project-title = "Floating Ball 2.1 Documentation"
 
 #let project-layout(doc) = {
@@ -81,6 +80,11 @@
     set text(fill: dark-grey, weight: "bold", size: 11pt)
     it
     v(0.1em)
+  }
+
+  show link: it => {
+    set text(fill: blue)
+    underline(it) 
   }
   
   set table(

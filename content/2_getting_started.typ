@@ -2,21 +2,27 @@
 
 = Getting Started: Installation and Setup
 ==	Installing Required Add-Ons 
-The required Add-Ons for MATLAB and Simulink can be found in the following list:
+The required Add-Ons for MATLAB 2025b can be found in the following list:
+
+#marker[*Board Manager in Arduino IDE?*]
+
 #list(
   marker: "•",
   indent: 2em,
   tight: false,
-  [MATLAB 2025b],
-    [MATLAB Coder],
-    [Simulink Coder],
-    [Embedded Coder],
-    [Arduino Support Packge for MATLAB],
-    [Arduino Support Packge for Simulink],
-    [Simulink Support Package for Arduino Hardware])
-
+  
+  [Simulink],
+  [MATLAB Coder],
+  [Simulink Coder],
+  [Embedded Coder],
+  [MATLAB Support Package for Arduino Hardware],
+  [Simulink Support Package for Arduino Hardware],
+  [MATLAB Support for MinGW-w64 C/C++/Fortran Compiler])
 
 ==	Setting Up the MATLAB Project 
-After installing the madatory Add-Ons the GitHub repository can be cloned. A link to the GitHub repository can be found #marker[*HERE*].
+After installing the madatory Add-Ons the
+#link("https://github.com/Electronic-and-Computer-Engineering/FloatingBall2.1")[FloatingBall Github repository]
+ can be cloned.
+
 
 To open the project navigate to the cloned repository and open the "Floating_Ball_20.prj" file.
