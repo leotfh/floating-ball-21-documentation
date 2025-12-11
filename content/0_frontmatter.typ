@@ -35,5 +35,5 @@
 ]
 
 #pagebreak()
-#outline()
+#outline(depth: 2)
 #pagebreak()
