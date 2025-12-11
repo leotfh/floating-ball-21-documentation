@@ -7,7 +7,7 @@
 #let Potentiometer_Datasheet = "https://4donline.ihs.com/images/VipMasterIC/IC/BOUR/BOUR-S-A0011028503/BOUR-S-A0011028503-1.pdf?hkey=6D3A4C79FDBF58556ACFDE234799DDF0"
 
 = Introduction
-This document serves as documentation and a guide for the Floating Ball System, developed by the Institute of Electronic & Computer Engineering at FH JOANNEUM. 
+This document serves as documentation and a guide for the Floating Ball System, developed by the Institute Electronic Engineering at FH JOANNEUM. 
 
 == Goal
 This project aims to show the principles of control engineering using a floating ball system. Students are supposed to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI).

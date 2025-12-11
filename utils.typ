@@ -16,7 +16,7 @@
       set text(size: 10pt)
       grid(
         columns: (1fr, auto),
-        align(left, text(fill: dept-color, weight: "bold")[ Electronics & Computer Engineering]),
+        align(left, text(fill: dept-color, weight: "bold")[ Electronics and Computer Engineering]),
         align(right, text(fill: dept-color)[Group C]), 
       )
       v(-6pt)
