@@ -1,8 +1,8 @@
 #import "../utils.typ": *
 
 = Getting Started: Installation and Setup
-==	Installing Required Add-Ons 
-The required Add-Ons for MATLAB 2025b can be found in the following list:
+==	Installing Required Add-Ons and Support Packages
+The required Add-Ons and Support Packages for MATLAB 2025b can be found in the following list:
 
 #marker[*Board Manager in Arduino IDE?*]
 
@@ -20,7 +20,7 @@ The required Add-Ons for MATLAB 2025b can be found in the following list:
   [MATLAB Support for MinGW-w64 C/C++/Fortran Compiler])
 
 ==	Setting Up the MATLAB Project 
-After installing the madatory Add-Ons the
+After installing the mandatory Add-Ons the
 #link("https://github.com/Electronic-and-Computer-Engineering/FloatingBall2.1")[FloatingBall Github repository]
  can be cloned.
 

@@ -57,16 +57,17 @@
     #strong[#it.supplement #context it.counter.display(it.numbering)]: #it.body
   ]
 
+
+  show outline.entry.where(level: 1): it => {
+    v(12pt, weak: true)
+    strong(it)
+  }
+
   show heading.where(level: 1): it => {
     set text(fill: dept-color, weight: "bold", size: 16pt)
     v(0.5em)
     it
     v(0.3em)
-  }
-
-  show outline.entry.where(level: 1): it => {
-    v(12pt, weak: true)
-    strong(it)          
   }
 
   show heading.where(level: 2): it => {

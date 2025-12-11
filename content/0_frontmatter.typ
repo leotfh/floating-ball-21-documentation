@@ -35,5 +35,5 @@
 ]
 
 #pagebreak()
-#outline(indent: auto)
+#outline()
 #pagebreak()
