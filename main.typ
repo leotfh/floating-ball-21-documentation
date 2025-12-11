@@ -12,4 +12,4 @@
 #include "content/2_getting_started.typ"
 #include "content/3_operation.typ"
 #include "content/4_troubleshooting.typ"
-#include "content/5_future_develoment.typ"
+#include "content/5_future_development.typ"
