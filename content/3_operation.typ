@@ -23,6 +23,58 @@ As mentioned before the easiest way to start the program is to type "main" into 
 ==	Using the GUI Controls
 #marker[*Doku when GUI is finished*] 
 
+=== Manual regulation
+
+=== Motor control
+
+=== Height PID control
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr),
+    align: center,
+
+    // Header
+    [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*],
+
+    // Data
+    [0.09], [0.16], [0.04],
+  ),
+  caption: [Height PID values],
+)
+
+=== Motor PID control
+
+#figure(
+  table(
+    columns: (1fr, 1fr),
+    align: center,
+
+    // Header
+    [*$k_("p,motor")$*], [*$T_("i,motor")$*],
+
+    // Data
+    [1.13], [0.03],
+  ),
+  caption: [Motor PID values],
+)
+
+=== Cascaded PID control
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    align: center,
+
+    // Header
+    [*$k_("p,motor")$*], [*$T_("i,motor")$*],[*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*],
+
+    // Data
+    [1.13], [0.03], [0.87], [0.65], [0.16],
+  ),
+  caption: [Cascaded PID values],
+)
+
 == Understanding the Simulink Model
 === General Overview
 As can be seen  in @Simulink_Model the Simulink Model is divided into six areas. These areas aim to differentiate certain functionalities from the rest of the model. The top row is used for setting the motor speed, as well as measuring the distance and motor speed. The bottom row is used for variable definition and serial transmit and receive.
