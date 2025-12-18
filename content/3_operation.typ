@@ -28,51 +28,100 @@ As mentioned before the easiest way to start the program is to type "main" into 
 === Motor control
 
 === Height PID control
+All the following PID values are for the system "FloatingBall-07".
+
+The following table shows the calculated PID values for the height controller. This values were determined using the Ziegler-Nichols method.
 
 #figure(
   table(
-    columns: (1fr, 1fr, 1fr),
+    columns: (1fr, 1fr, 1fr, 1fr),
     align: center,
 
     // Header
-    [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*],
+    [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
 
     // Data
-    [0.09], [0.16], [0.04],
+    [0.1], [0.08], [0.02], [2],
   ),
-  caption: [Height PID values],
+  caption: [calculated height PID values],
+)
+
+After some fine tuning the following values were used in the final implementation.
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr),
+    align: center,
+
+    // Header
+    [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
+
+    // Data
+    [0.1], [0.08], [0.02], [2],
+  ),
+  caption: [Determined height PID values],
 )
 
 === Motor PID control
 
+The following table shows the calculated PID values for the motor controller.
+
 #figure(
   table(
-    columns: (1fr, 1fr),
+    columns: (1fr, 1fr, 1fr, 1fr),
     align: center,
 
     // Header
-    [*$k_("p,motor")$*], [*$T_("i,motor")$*],
+    [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*],
 
     // Data
-    [1.13], [0.03],
+    [1.13], [0.03], [0], [0],
   ),
-  caption: [Motor PID values],
+  caption: [Calculated motor PID values],
+)
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr),
+    align: center,
+
+    // Header
+    [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*],
+
+    // Data
+    [1.01], [0.8], [0], [0],
+  ),
+  caption: [Determined motor PID values],
 )
 
 === Cascaded PID control
 
 #figure(
   table(
-    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
     align: center,
 
     // Header
-    [*$k_("p,motor")$*], [*$T_("i,motor")$*],[*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*],
+    [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*], [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
 
     // Data
-    [1.13], [0.03], [0.87], [0.65], [0.16],
+    [1.13], [0.03], [0], [0], [0.87], [0.65], [0.16], [2],
   ),
   caption: [Cascaded PID values],
+)
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+    align: center,
+
+    // Header
+    [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*], [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
+
+    // Data
+    [1.01], [0.08], [0], [0], [0.64], [0.4], [0.04], [5],
+  ),
+  caption: [Determined Cascaded PID values],
 )
 
 == Understanding the Simulink Model
