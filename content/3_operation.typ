@@ -21,7 +21,9 @@ To build and deploy the program manually the Simulink file "FloatingBall.slx" ne
 As mentioned before the easiest way to start the program is to type "main" into the MATLAB Command Window. To only start the GUI select "Start GUI only" from the pop-up. This option is recommended if it is certain that the program is already flashed correctly. When selecting "Build and Deploy" the GUI starts automatically after the flashing process is finished.
 
 ==	Using the GUI Controls
-#marker[*Doku when GUI is finished*] 
+#marker[*Doku when GUI is finished*]
+
+The GUI offers multiple modes of operation to control the FloatingBall system. It is important to choose the right one for the result which should be achieved.
 
 === Manual regulation
 
