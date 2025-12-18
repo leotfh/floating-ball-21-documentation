@@ -4,8 +4,6 @@
 ==	Installing Required Add-Ons and Support Packages
 The required Add-Ons and Support Packages for MATLAB 2025b can be found in the following list:
 
-#marker[*Board Manager in Arduino IDE?*]
-
 #list(
   marker: "•",
   indent: 2em,
