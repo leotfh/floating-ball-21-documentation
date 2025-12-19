@@ -10,6 +10,7 @@
 
 #include "content/1_introduction.typ"
 #include "content/2_getting_started.typ"
-#include "content/3_operation.typ"
-#include "content/4_troubleshooting.typ"
-#include "content/5_future_development.typ"
+#include "content/3_simulink_model.typ"
+#include "content/4_operation.typ"
+#include "content/5_troubleshooting.typ"
+#include "content/6_future_development.typ"
