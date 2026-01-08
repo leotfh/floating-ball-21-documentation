@@ -59,7 +59,7 @@ The GUI itself consists of three main aspects. The user input section, the data 
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
     #align(center + horizon, text(fill: dept-color)[#image("img/general/App_Designer_GUI.png", width: 95%)])
   ],
-  caption: [MATLAB App Designer],
+  caption: [MATLAB App Designer GUI],
 )<App_Designer_GUI>
 
 The input section is heavily dependent on the mode selected. Depending on the mode the user input consists different tuning parameters or input values.
@@ -101,7 +101,7 @@ As can be seen in @Motor_Poti the output is the input cast onto a double. The in
 )<Motor_Poti>
 
 === PID Height
-The "PID Height" mode is used to control the height of the ball via a PID controller. The inputs are the desired and current height. The output is a pwm duty cycle for the motor voltage from 0-255. The implementation can be found in @Height_PID_Controller.
+The "PID Height" mode is used to control the height of the ball via a PID controller of the "FloatingBall-07" system. The inputs are the desired and current height. The output is a pwm duty cycle for the motor voltage from 0-255. The implementation can be found in @Height_PID_Controller.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -109,54 +109,6 @@ The "PID Height" mode is used to control the height of the ball via a PID contro
   ],
   caption: [Simulink Height PID Controller],
 )<Height_PID_Controller>
-
-=== PID Motor
-With the "PID Motor" mode the motor can be controlled via a PID controller. The inputs are the desired and current motor speed. The output is the pwm duty cycle from 0-255. The implementation in Simulink can be seen in @Motor_PID_Controller.
-
-The PI values for the motor PI controller of the "FloatingBall-07" system found in @Motor_PID_Values were calculated with the "StepResponse" mode.
-
-#figure(
-  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img/general/Motor_PID_Controller.png", width: 95%)])
-  ],
-  caption: [Simulink Motor PID Controller],
-)<Motor_PID_Controller>
-
-#figure(
-  table(
-    columns: (1fr, 1fr),
-    align: center,
-
-    // Header
-    [*$k_("p,motor")$*], [*$T_("i,motor")$*],
-
-    // Data
-    [1.13], [0.03],
-  ),
-  caption: [Motor PID values],
-)<Motor_PID_Values>
-#marker[Calculated values here oder below? (Kristian)]
-
-=== PID Cascaded
-With the "PID Cascaded" mode the height of the ball can be controlled with two cascaded PID controllers. This can be seen in @Cascaded_Controller. The "Height PID" and "Motor PID" subsystems are the same as the controllers in @Height_PID_Controller and @Motor_PID_Controller.
-
-#figure(
-  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img/general/Cascaded_Controller.png", width: 95%)])
-  ],
-  caption: [Simulink Cascaded Controller],
-)<Cascaded_Controller>
-
-=== Step Response
-The "StepResponse" mode is used to measure and save the step response. It is possible to measure the step response for the motor speed, for the height and for the height with underlying motor PID controller.
-
-#marker[PICTURE WHEN GUI IS FINISHED]
-
-
-
-
-=== Height PID control
-All the following PID values are for the system "FloatingBall-07".
 
 The following table shows the calculated PID values for the height controller. This values were determined using the Ziegler-Nichols method.
 
@@ -190,9 +142,17 @@ After some fine tuning the following values were used in the final implementatio
   caption: [Determined height PID values],
 )
 
-=== Motor PID control
+=== PID Motor
+With the "PID Motor" mode the motor can be controlled via a PID controller. The inputs are the desired and current motor speed. The output is the pwm duty cycle from 0-255. The implementation in Simulink can be seen in @Motor_PID_Controller.
 
-The following table shows the calculated PID values for the motor controller.
+The PI values for the motor PI controller of the "FloatingBall-07" system found in @Motor_PID_Values were calculated with the "StepResponse" mode.
+
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Motor_PID_Controller.png", width: 95%)])
+  ],
+  caption: [Simulink Motor PID Controller],
+)<Motor_PID_Controller>
 
 #figure(
   table(
@@ -206,7 +166,7 @@ The following table shows the calculated PID values for the motor controller.
     [1.13], [0.03], [0], [0],
   ),
   caption: [Calculated motor PID values],
-)
+)<Motor_PID_Values>
 
 #figure(
   table(
@@ -222,7 +182,15 @@ The following table shows the calculated PID values for the motor controller.
   caption: [Determined motor PID values],
 )
 
-=== Cascaded PID control
+=== PID Cascaded
+With the "PID Cascaded" mode the height of the ball can be controlled with two cascaded PID controllers. This can be seen in @Cascaded_Controller. The "Height PID" and "Motor PID" subsystems are the same as the controllers in @Height_PID_Controller and @Motor_PID_Controller.
+
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Cascaded_Controller.png", width: 95%)])
+  ],
+  caption: [Simulink Cascaded Controller],
+)<Cascaded_Controller>
 
 #figure(
   table(
@@ -251,3 +219,8 @@ The following table shows the calculated PID values for the motor controller.
   ),
   caption: [Determined Cascaded PID values],
 )
+
+=== Step Response
+The "StepResponse" mode is used to measure and save the step response. It is possible to measure the step response for the motor speed, for the height and for the height with underlying motor PID controller.
+
+#marker[PICTURE WHEN GUI IS FINISHED]
