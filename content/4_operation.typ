@@ -1,8 +1,30 @@
 #import "../utils.typ": *
 
 =	Operating the Floating Ball System 
-==	Building, Deploying, and Starting the Model
-After opening the project the model must be built and deployed. This can be done automatically or manually.
+After opening the project the model must be built and deployed. This can be done with the Command Window or the MATLAB App Designer. It is recommended to use the App Designer since this method works better with different screen resolutions.
+
+== Building, Deploying, Starting the Model using the App Designer <App_Designer>
+To open the App Designer open the .mlapp file found in the GUI folder.
+
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/mlapp_file.png", width: 95%)])
+  ],
+  caption: [MATLAB App Designer file],
+)<mlapp_file>
+
+To start the App Designer press the Run button.
+
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/start_mlapp.png", width: 95%)])
+  ],
+  caption: [MATLAB App Designer Run Button],
+)<start_mlapp>
+
+
+==	Building, Deploying, Starting the Model using the Command Window
+Since this method is considered a legacy method it is only recommended when the method mentioned above is not working.
 
 === Building and Deploying automatically
 The easiest way to build the model and flash it onto the Arduino Uno R4 Minima is to type "main" into the MATLAB Command Window. This lets a pop-up window appear, which asks the user what should be done. The available options as shown in @Pop_up are "Build & Deploy", "Start GUI only" and "Cancel". When starting the FloatingBall System for the first time it is advised to select the "Build and Deploy" option to ensure the right program is flashed on the Arduino.
@@ -24,33 +46,49 @@ To build and deploy the program manually the Simulink file "FloatingBall.slx" ne
   caption: [Simulink Build and Deploy Button],
 )<Build_Deploy>
 
+
 ==	Launching the Graphical User Interface (GUI)
-As mentioned before the easiest way to start the program is to type "main" into the MATLAB Command Window. To only start the GUI select "Start GUI only" from the pop-up shown in @Pop_up. This option is recommended if it is certain that the program is already flashed correctly. When selecting "Build & Deploy" the GUI starts automatically after the flashing process is finished.
+As mentioned before the easiest way to start the program is to use the MATLAB App Designer. To start the App Designer follow the steps found in @App_Designer.
 
 ==	Using the GUI Controls
 #marker[*Doku when GUI is finished*]
 === GUI General Overview
 The GUI itself consists of three main aspects. The user input section, the data output section and the mode selection. The output section three different graphs can be found. One for the height of the ball, one for the motor speed and one for the operating voltage of the motor.
 
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/App_Designer_GUI.png", width: 95%)])
+  ],
+  caption: [MATLAB App Designer],
+)<App_Designer_GUI>
+
 The input section is heavily dependent on the mode selected. Depending on the mode the user input consists different tuning parameters or input values.
 
-As mentioned before the GUI offers multiple modes of operation to control the FloatingBall system. Following modes can be selected:
-
-#marker[The names of  the modes have to be changed to be more intuitive in the GUI I think (Kristian)]
+As mentioned before the GUI offers multiple modes of operation to control the FloatingBall system. Following modes can be selected via the tabs at the top:
 
 #list(
   marker: "•",
   indent: 2em,
   tight: false,
   
-  [Manual Control],
-  [Motor Controller],
-  [PID Height Controller],
-  [PID Motorspeed Controller],
-  [Cascaded Controller])
+  [RPM],
+  [Poti],
+  [PID Height],
+  [PID Motor],
+  [PID Cascaded],
+  [StepResponse])
 
+=== RPM 
+The "RPM" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed.
 
-=== Manual Control
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Motor_Controller.png", width: 95%)])
+  ],
+  caption: [Simulink RPM Control],
+)<Motor_Controller>
+
+=== Poti (Manual Control)
 This mode is mainly for demonstration purposes. In this mode the height of the ball is in direct correlation with the position of the sliding potentiometer. The goal of the manual control mode is to show that the control of the ball height is far more difficult than one might think.
 
 As can be seen in @Motor_Poti the output is the input cast onto a double. The input is a voltage which is defined by a voltage divider between a resistor and the sliding potentiometer.
@@ -62,24 +100,20 @@ As can be seen in @Motor_Poti the output is the input cast onto a double. The in
   caption: [Simulink Manual Control],
 )<Motor_Poti>
 
-
-=== Motor control
-
-The "Motor Controller" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed.
+=== PID Height
+The "PID Height" mode is used to control the height of the ball via a PID controller. The inputs are the desired and current height. The output is a pwm duty cycle for the motor voltage from 0-255. The implementation can be found in @Height_PID_Controller.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img/general/Motor_Controller.png", width: 95%)])
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Height_PID_Controller.png", width: 95%)])
   ],
-  caption: [Simulink Motor Controller],
-)<Motor_Controller>
+  caption: [Simulink Height PID Controller],
+)<Height_PID_Controller>
 
-=== Motor PID control
-With the "Motor PID Controller" mode the motor can be controlled via a PID controller. The input is the desired motor speed and the output is the pwm duty cycle from 0-255. The implementation in Simulink can be seen in @Motor_PID_Controller.
+=== PID Motor
+With the "PID Motor" mode the motor can be controlled via a PID controller. The inputs are the desired and current motor speed. The output is the pwm duty cycle from 0-255. The implementation in Simulink can be seen in @Motor_PID_Controller.
 
-To capture an impulse response consistently an additional feature was added. With the "Step Response" button a step response can be recorded. When pressing this button a step is applied to the motor after half a second. After ten seconds a new pop-up appears. With this pop-up the captured data can either be saved as .txt or .mat.
-
-The PI values for the motor PI controller of the "FloatingBall-07" system found in @Motor_PID_Values were calculated with the step response feature.
+The PI values for the motor PI controller of the "FloatingBall-07" system found in @Motor_PID_Values were calculated with the "StepResponse" mode.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -87,13 +121,6 @@ The PI values for the motor PI controller of the "FloatingBall-07" system found 
   ],
   caption: [Simulink Motor PID Controller],
 )<Motor_PID_Controller>
-
-#figure(
-  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img/general/Motor_PID_Controller_Step.png", width: 95%)])
-  ],
-  caption: [Simulink Motor Step Response],
-)<Motor_PID_Controller_Step>
 
 #figure(
   table(
@@ -108,6 +135,20 @@ The PI values for the motor PI controller of the "FloatingBall-07" system found 
   ),
   caption: [Motor PID values],
 )<Motor_PID_Values>
+#marker[Calculated values here oder below? (Kristian)]
+
+=== PID Cascaded
+With the "PID Cascaded" mode the height of the ball can be controlled with two cascaded PID controllers. This can be seen in @Cascaded_Controller.
+
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Cascaded_Controller.png", width: 95%)])
+  ],
+  caption: [Simulink Cascaded Controller],
+)<Cascaded_Controller>
+
+
+
 
 === Height PID control
 All the following PID values are for the system "FloatingBall-07".
