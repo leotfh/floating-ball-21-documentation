@@ -138,7 +138,7 @@ The PI values for the motor PI controller of the "FloatingBall-07" system found 
 #marker[Calculated values here oder below? (Kristian)]
 
 === PID Cascaded
-With the "PID Cascaded" mode the height of the ball can be controlled with two cascaded PID controllers. This can be seen in @Cascaded_Controller.
+With the "PID Cascaded" mode the height of the ball can be controlled with two cascaded PID controllers. This can be seen in @Cascaded_Controller. The "Height PID" and "Motor PID" subsystems are the same as the controllers in @Height_PID_Controller and @Motor_PID_Controller.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -146,6 +146,11 @@ With the "PID Cascaded" mode the height of the ball can be controlled with two c
   ],
   caption: [Simulink Cascaded Controller],
 )<Cascaded_Controller>
+
+=== Step Response
+The "StepResponse" mode is used to measure and save the step response. It is possible to measure the step response for the motor speed, for the height and for the height with underlying motor PID controller.
+
+#marker[PICTURE WHEN GUI IS FINISHED]
 
 
 
