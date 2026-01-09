@@ -13,7 +13,8 @@ To open the App Designer open the .mlapp file found in the GUI folder.
   caption: [MATLAB App Designer file],
 )<mlapp_file>
 
-To start the App Designer press the Run button.
+To start the App Designer press the Run button. 
+#marker[The program should automatically be built and deployed.(?)]
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -75,7 +76,7 @@ As mentioned before the GUI offers multiple modes of operation to control the Fl
   [PID Height],
   [PID Motor],
   [PID Cascaded],
-  [StepResponse])
+  [StepResponse #marker[(maybe deleted)]])
 
 === RPM 
 The "RPM" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed.
