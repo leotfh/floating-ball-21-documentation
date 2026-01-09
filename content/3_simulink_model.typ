@@ -43,7 +43,7 @@ Between the two motor control areas the "Distance Sensor" area can be found. Her
   caption: [Simulink Model Distance Sensor],
 )<Simulink_Distance_Sensor>
 
-The "VL53L1X_Driver" block is auto code generated with the IO Device Builder tool. This blocks links the Simulink Model with the "VL53L1X_Driver.cpp" file which is needed for the TOF distance sensor. This file can be found in "Main\Simulink\Sensor\VL53L1X_Driver". It is important to mention that the "VL53L1X_Driver.cpp" is programmed in such a way that the sampling frequency of the distance sensor is independent from the Simulink model sampling frequency. This was done to ensure a higher frequency for the inner controller (motor controller) of the cascaded controller. If the sampling frequency of the distance sensor needs to be changed the functions "sensor.setMeasurementTimingBudget()" and "sensor.setMeasurementTimingBudget()" need to edited.
+The "VL53L1X_Driver" block is auto code generated with the IO Device Builder tool. This blocks links the Simulink Model with the "VL53L1X_Driver.cpp" file which is needed for the TOF distance sensor. This file can be found in "Main\\Simulink\\Sensor\\VL53L1X_Driver". It is important to mention that the "VL53L1X_Driver.cpp" is programmed in such a way that the sampling frequency of the distance sensor is independent from the Simulink model sampling frequency. This was done to ensure a higher frequency for the inner controller (motor controller) of the cascaded controller. If the sampling frequency of the distance sensor needs to be changed the functions "sensor.setMeasurementTimingBudget()" and "sensor.startContinuous()" need to edited.
 
 #block(
   fill: light-grey,

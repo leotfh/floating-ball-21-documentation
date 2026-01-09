@@ -24,7 +24,7 @@ To start the App Designer press the Run button.
 
 
 ==	Building, Deploying, Starting the Model using the Command Window
-Since this method is considered a legacy method it is only recommended when the method mentioned above is not working.
+As this is a legacy method, it should only be used as a fallback if the previously described procedure fails.
 
 === Building and Deploying automatically
 The easiest way to build the model and flash it onto the Arduino Uno R4 Minima is to type "main" into the MATLAB Command Window. This lets a pop-up window appear, which asks the user what should be done. The available options as shown in @Pop_up are "Build & Deploy", "Start GUI only" and "Cancel". When starting the FloatingBall System for the first time it is advised to select the "Build and Deploy" option to ensure the right program is flashed on the Arduino.
@@ -109,7 +109,7 @@ The "PID Height" mode is used to control the height of the ball via a PID contro
   caption: [Simulink Height PID Controller],
 )<Height_PID_Controller>
 
-The following table shows the calculated PID values for the height controller. This values were determined using the Ziegler-Nichols method.
+The following table shows the calculated PID values for the height controller of the "FloatingBall-07" system. This values were determined using the Ziegler-Nichols method.
 
 #figure(
   table(
@@ -144,7 +144,7 @@ After some fine tuning the following values were used in the final implementatio
 === PID Motor
 With the "PID Motor" mode the motor can be controlled via a PID controller. The inputs are the desired and current motor speed. The output is the pwm duty cycle from 0-255. The implementation in Simulink can be seen in @Motor_PID_Controller.
 
-The PI values for the motor PI controller of the "FloatingBall-07" system found in @Motor_PID_Values were calculated with the "StepResponse" mode.
+The PI values for the PI motor controller of the "FloatingBall-07" system found in @Motor_PID_Values were calculated with the "StepResponse" mode.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -202,7 +202,7 @@ With the "PID Cascaded" mode the height of the ball can be controlled with two c
     // Data
     [1.13], [0.03], [0], [0], [0.87], [0.65], [0.16], [2],
   ),
-  caption: [Cascaded PID values],
+  caption: [Calculated Cascaded PID values],
 )
 
 #figure(
