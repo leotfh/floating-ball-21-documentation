@@ -29,8 +29,8 @@
     gutter: 1em,
     align: left,
     strong("Authors:"), [Max Dandler \ Lucas Fink \ Anto Dzicic \ Kristian Seiner \ Leo Traußnigg],
-    strong("Deadline:"), [19. November 2025],
-    strong("Version: "), [1.0]
+    strong("Deadline:"), [14. Jänner 2026],
+    strong("Version: "), [1.1]
   )
 ]
 
