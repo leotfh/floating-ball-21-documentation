@@ -43,7 +43,7 @@ Between the two motor control areas the "Distance Sensor" area can be found. Her
   caption: [Simulink Model Distance Sensor],
 )<Simulink_Distance_Sensor>
 
-The "VL53L1X_Driver" block is auto code generated with the IO Device Builder tool. This blocks links the Simulink Model with the "VL53L1X_Driver.cpp" file which is needed for the TOF distance sensor. This file can be found in "Main\\Simulink\\Sensor\\VL53L1X_Driver". It is important to mention that the "VL53L1X_Driver.cpp" is programmed in such a way that the sampling frequency of the distance sensor is independent from the Simulink model sampling frequency. This was done to ensure a higher frequency for the inner controller (motor controller) of the cascaded controller. If the sampling frequency of the distance sensor needs to be changed the functions "sensor.setMeasurementTimingBudget()" and "sensor.startContinuous()" need to edited.
+The "VL53L1X_Driver" block is auto code generated with the IO Device Builder tool. This blocks links the Simulink Model with the `VL53L1X_Driver.cpp` file which is needed for the TOF distance sensor. This file can be found in "Main/Simulink/Sensor/VL53L1X_Driver". It is important to mention that the `VL53L1X_Driver.cpp` is programmed in such a way that the sampling frequency of the distance sensor is independent from the Simulink model sampling frequency. This was done to ensure a higher frequency for the inner controller (motor controller) of the cascaded controller. If the sampling frequency of the distance sensor needs to be changed the functions "sensor.setMeasurementTimingBudget()" and "sensor.startContinuous()" need to edited.
 
 #block(
   fill: light-grey,
@@ -112,7 +112,7 @@ The logic of the serial transmission is split into two areas. The "Serial Transm
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img\general\Simulink_Model_Serial_Transmit.png", width: 95%)])
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Simulink_Model_Serial_Transmit.png", width: 95%)])
   ],
   caption: [Simulink Model Serial Transmit],
 )<Simulink_Serial_Transmit>
@@ -121,7 +121,7 @@ The "Serial Receive" splits the input into several smaller parts and writes the 
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img\general\Simulink_Model_Serial_Receive.png", width: 95%)])
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Simulink_Model_Serial_Receive.png", width: 95%)])
   ],
   caption: [Simulink Model Serial Transmit],
 )<Simulink_Serial_Receive>
@@ -131,7 +131,7 @@ To change the sampling frequency of the Simulink model, the Simulink Model Works
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img\general\sampling_frequency.png", width: 95%)])
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/sampling_frequency.png", width: 95%)])
   ],
   caption: [Simulink Sampling Frequency],
 )<sampling_frequency>
