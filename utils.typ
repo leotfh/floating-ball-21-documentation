@@ -57,7 +57,6 @@
     #strong[#it.supplement #context it.counter.display(it.numbering)]: #it.body
   ]
 
-
   show outline.entry.where(level: 1): it => {
     v(12pt, weak: true)
     strong(it)
@@ -98,6 +97,9 @@
       else if calc.even(y) { light-grey } 
       else { white }
   )
+
+  // Make all references blue and underlined
+  show ref: it => emph(text(fill: blue, it))
 
   doc
 }
