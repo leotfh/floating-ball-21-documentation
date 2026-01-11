@@ -12,6 +12,16 @@ This document serves as documentation and a guide for the Floating Ball System, 
 == Goal
 This project aims to show the principles of control engineering using a floating ball system. Students are supposed to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI).
 
+== System Overview
+The Floating Ball System consists of a vertical tube in which a lightweight table tennis ball is suspended in the air by a PWM-controlled motor-driven fan at the bottom. The height of the ball is measured using a Time-of-Flight (TOF) distance sensor positioned at the top of the tube. A potentiometer allows users to set the height of the ball. The entire system is powered and managed by an Arduino Uno R4 Minima microcontroller, which interfaces with the motor, distance sensor, and potentiometer.
+
+#figure(
+  rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/diagrams/Schematic_KiCAD.png", width: 95%)])
+  ],
+  caption: [Schematic Overview],
+)<Schematic_Overview>
+
 == Bill of Materials (BOM)
 
 #figure(
