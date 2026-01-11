@@ -12,9 +12,9 @@
 #pagebreak()
 #include "content/2_getting_started.typ"
 #pagebreak()
-#include "content/3_simulink_model.typ"
-#pagebreak()
 #include "content/4_operation.typ"
+#pagebreak()
+#include "content/3_simulink_model.typ"
 #pagebreak()
 #include "content/5_troubleshooting.typ"
 #pagebreak()
