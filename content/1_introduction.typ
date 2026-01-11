@@ -10,7 +10,7 @@
 This document serves as documentation and a guide for the Floating Ball System, developed by the Institute Electronic Engineering at FH JOANNEUM. 
 
 == Goal
-This project aims to show the principles of control engineering using a floating ball system. Students are supposed to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI).
+This project aims to show the principles of control engineering using a floating ball system. The objective is to enable students to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI).
 
 == System Overview
 The Floating Ball System consists of a vertical tube in which a lightweight table tennis ball is suspended in the air by a PWM-controlled motor-driven fan at the bottom. The height of the ball is measured using a Time-of-Flight (TOF) distance sensor positioned at the top of the tube. A potentiometer allows users to set the height of the ball. The entire system is powered and managed by an Arduino Uno R4 Minima microcontroller, which interfaces with the motor, distance sensor, and potentiometer.
@@ -33,7 +33,7 @@ The Floating Ball System consists of a vertical tube in which a lightweight tabl
     [*Component*], [*Description*], [*Quantity*], [*Price*],
     
     // Data
-    [Microcontroller], [#link(Arduino_Datasheet)[Arudino Uno R4 Minima]], [1], [20,72 €],
+    [Microcontroller], [#link(Arduino_Datasheet)[Arduino Uno R4 Minima]], [1], [20,72 €],
     [PWM Motor], [#link(PWM_Motor_Datasheet)[SAN ACE B97]], [1], [32,20 €],
     [Distance Sensor], [#link(VL53L1X_Datasheet)[VL53L1X TOF Sensor]], [1], [16,50€],
     [Tube], [height variable], [1], [#marker[insert price here]],
