@@ -1,10 +1,10 @@
 #import "../utils.typ": *
 
 =	Operating the Floating Ball System 
-After opening the project the model must be built and deployed. This can be done with the Command Window or the MATLAB App Designer. It is recommended to use the App Designer since this method works better with different screen resolutions.
+After cloning the git repository and opening the project, the model must be built and deployed. This can be done with the Command Window or the MATLAB App Designer. It is recommended to use the App Designer since this method works better with different screen resolutions.
 
-== Building, Deploying, Starting the Model using the App Designer <App_Designer>
-To open the App Designer open the .mlapp file found in the GUI folder.
+== Building, Deploying, Starting the Model using the App Designer GUI <App_Designer>
+To launch the App Designer open the `FloatingBallGUI.mlapp` file located in the GUI folder.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -13,8 +13,8 @@ To open the App Designer open the .mlapp file found in the GUI folder.
   caption: [MATLAB App Designer file],
 )<mlapp_file>
 
-To start the App Designer press the Run button. 
-#marker[The program should automatically be built and deployed.(?)]
+To start the App Designer GUI, press the Run button or press `F5`.
+//#marker[The program should automatically be built and deployed.(?)]
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -23,22 +23,30 @@ To start the App Designer press the Run button.
   caption: [MATLAB App Designer Run Button],
 )<start_mlapp>
 
+At the top left of the GUI, there is a "File" menu. By clicking on it, a drop-down menu appears. Here the "Flash" option can be selected to build and deploy the model onto the Arduino Uno R4 Minima. There is also an option to directly open the model in Simulink. A pop-up window will appear to inform the user about the progress of the build and deploy process. If the process is successful, a message will be displayed in the pop-up window.
+
+#figure(
+  rect(width: 50%, height: auto, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/Flash_menu.png", width: 95%)])
+  ],
+  caption: [Flash Menu in App Designer GUI],
+)<Flash_menu>
 
 ==	Building, Deploying, Starting the Model using the Command Window
 As this is a legacy method, it should only be used as a fallback if the previously described procedure fails.
 
 === Building and Deploying automatically
-The easiest way to build the model and flash it onto the Arduino Uno R4 Minima is to type "main" into the MATLAB Command Window. This lets a pop-up window appear, which asks the user what should be done. The available options as shown in @Pop_up are "Build & Deploy", "Start GUI only" and "Cancel". When starting the FloatingBall System for the first time it is advised to select the "Build and Deploy" option to ensure the right program is flashed on the Arduino.
+The easiest way to build the model and flash it onto the Arduino Uno R4 Minima is to type "`main`" into the MATLAB Command Window. This lets a pop-up window appear, which asks the user what should be done. The available options as shown in @Pop_up are "Build & Deploy", "Start GUI only" and "Cancel". When starting the FloatingBall System for the first time, it is advised to select the "Build and Deploy" option to ensure the right program is flashed on the Arduino. Note that "Start GUI only" start the old GUI which is not recommended to use.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
     #align(center + horizon, text(fill: dept-color)[#image("img/general/Pop_up.png", width: 95%)])
   ],
-  caption: [GUI Pop-Up],
+  caption: [Pop-Up for mode selection],
 )<Pop_up>
 
 === Building and Deploying manually
-To build and deploy the program manually the Simulink file "FloatingBall.slx" needs to be opened. In the "Hardware" tab the program can be built and deployed.
+To build and deploy the program manually, the Simulink file `FloatingBall.slx` needs to be opened. In the "Hardware" tab the program can be built and deployed.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -49,11 +57,10 @@ To build and deploy the program manually the Simulink file "FloatingBall.slx" ne
 
 
 ==	Launching the Graphical User Interface (GUI)
-As mentioned before the easiest way to start the program is to use the MATLAB App Designer. To start the App Designer follow the steps found in @App_Designer.
+As mentioned before, the easiest way to start the program is to use the MATLAB App Designer. To start the App Designer follow the steps found in @App_Designer.
 
-==	Using the GUI Controls
-=== GUI General Overview
-The GUI itself consists of three main aspects. The user input section, the data output section and the mode selection. The output section three different graphs can be found. One for the height of the ball, one for the motor speed and one for the operating voltage of the motor.
+=== GUI overwiew 
+The GUI is divided into three main aspects. The user input section, the data output section and the mode selection. The output section consists of three different graphs. One for the height of the ball, one for the motor speed and one for the operating voltage of the motor.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -62,9 +69,16 @@ The GUI itself consists of three main aspects. The user input section, the data 
   caption: [MATLAB App Designer GUI],
 )<App_Designer_GUI>
 
-The input section is heavily dependent on the mode selected. Depending on the mode the user input consists different tuning parameters or input values.
+The input section changes based on the mode selected. Depending on the mode selected, the user input section behaves differently.
 
-As mentioned before the GUI offers multiple modes of operation to control the FloatingBall system. Following modes can be selected via the tabs at the top:
+== Input section
+The input section is located on the lower left side of the GUI. Here the user can connect and disconnect the Arduino and set the desired parameters for the selected mode. 
+
+=== Step Response
+The "Step Response" button is used to measure and save the step response. It is possible to measure the step response in "RPM" (Open Loop) and "Height Control" mode.
+
+== Operating Modes
+The GUI offers multiple modes of operation to control the FloatingBall system. Following modes can be selected via the tabs at the top:
 
 #list(
   marker: "•",
@@ -75,11 +89,10 @@ As mentioned before the GUI offers multiple modes of operation to control the Fl
   [Poti],
   [PID Height],
   [PID Motor],
-  [PID Cascaded],
-  [StepResponse #marker[(maybe deleted)]])
+  [PID Cascaded])
 
 === RPM 
-The "RPM" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed.
+The "RPM" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed. It is important to mention that in this mode there is no active control loop.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
@@ -139,7 +152,7 @@ After some fine tuning the following values were used in the final implementatio
     // Data
     [0.1], [0.08], [0.02], [2],
   ),
-  caption: [Determined height PID values],
+  caption: [Experimentally determined height PID values],
 )
 
 === PID Motor
@@ -179,7 +192,7 @@ The PI values for the PI motor controller of the "FloatingBall-07" system found 
     // Data
     [1.01], [0.8], [0], [0],
   ),
-  caption: [Determined motor PID values],
+  caption: [Experimentally determined motor PID values],
 )
 
 === PID Cascaded
@@ -217,10 +230,5 @@ With the "PID Cascaded" mode the height of the ball can be controlled with two c
     // Data
     [1.01], [0.08], [0], [0], [0.64], [0.4], [0.04], [5],
   ),
-  caption: [Determined Cascaded PID values],
+  caption: [Experimentally determined Cascaded PID values],
 )
-
-=== Step Response
-The "StepResponse" mode is used to measure and save the step response. It is possible to measure the step response for the motor speed, for the height and for the height with underlying motor PID controller.
-
-#marker[PICTURE WHEN GUI IS FINISHED]
