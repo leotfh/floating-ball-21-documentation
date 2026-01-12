@@ -74,7 +74,6 @@ The input section changes based on the mode selected. Depending on the mode sele
 == Input section
 The input section is located on the lower left side of the GUI. Here the user can connect and disconnect the Arduino and set the desired parameters for the selected mode. 
 
-=== Step Response
 The "Step Response" button is used to measure and save the step response. It is possible to measure the step response in "RPM" (Open Loop) and "Height Control" mode.
 
 == Operating Modes
@@ -92,7 +91,7 @@ The GUI offers multiple modes of operation to control the FloatingBall system. F
   [PID Cascaded])
 
 === RPM 
-The "RPM" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed. It is important to mention that in this mode there is no active control loop.
+The "RPM" mode is mainly used for testing purposes. The output is a step function of the PWM voltage used for the motor speed control. The PWM duty cycle is calculated with a 4th order polynomial which was experimentally determined by setting the duty cycle and measuring the motor speed. It is important to mention that there is no active control loop in this mode.
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
