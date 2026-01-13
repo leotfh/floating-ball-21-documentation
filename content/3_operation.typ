@@ -122,7 +122,7 @@ The "PID Height" mode is used to control the height of the ball via a PID contro
   caption: [Simulink Height PID Controller],
 )<Height_PID_Controller>
 
-The following table shows the calculated PID values for the height controller of the "FloatingBall-07" system. This values were determined using the Ziegler-Nichols method.
+The following table shows the calculated and fine tuned PID values for the height controller of the "FloatingBall-07" system. This values were determined using the Ziegler-Nichols method.
 
 #figure(
   table(
@@ -135,23 +135,7 @@ The following table shows the calculated PID values for the height controller of
     // Data
     [0.1], [0.08], [0.02], [2],
   ),
-  caption: [calculated height PID values],
-)
-
-After some fine tuning the following values were used in the final implementation.
-
-#figure(
-  table(
-    columns: (1fr, 1fr, 1fr, 1fr),
-    align: center,
-
-    // Header
-    [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
-
-    // Data
-    [0.1], [0.08], [0.02], [2],
-  ),
-  caption: [Experimentally determined height PID values],
+  caption: [PID values of the height controller],
 )
 
 === PID Motor
@@ -175,24 +159,10 @@ The PI values for the PI motor controller of the "FloatingBall-07" system found 
     [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*],
 
     // Data
-    [1.13], [0.03], [0], [0],
-  ),
-  caption: [Calculated motor PID values],
-)<Motor_PID_Values>
-
-#figure(
-  table(
-    columns: (1fr, 1fr, 1fr, 1fr),
-    align: center,
-
-    // Header
-    [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*],
-
-    // Data
     [1.01], [0.8], [0], [0],
   ),
-  caption: [Experimentally determined motor PID values],
-)
+  caption: [PID values of the motor controller],
+)<Motor_PID_Values>
 
 === PID Cascaded
 With the "PID Cascaded" mode the height of the ball can be controlled with two cascaded PID controllers. This can be seen in @Cascaded_Controller. The "Height PID" and "Motor PID" subsystems are the same as the controllers in @Height_PID_Controller and @Motor_PID_Controller.
@@ -204,19 +174,7 @@ With the "PID Cascaded" mode the height of the ball can be controlled with two c
   caption: [Simulink Cascaded Controller],
 )<Cascaded_Controller>
 
-#figure(
-  table(
-    columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
-    align: center,
-
-    // Header
-    [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*], [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
-
-    // Data
-    [1.13], [0.03], [0], [0], [0.87], [0.65], [0.16], [2],
-  ),
-  caption: [Calculated Cascaded PID values],
-)
+The following table shows the fine tuned PID values for both controllers in the cascaded control loop of the system "FloatingBall-07".
 
 #figure(
   table(
@@ -229,5 +187,5 @@ With the "PID Cascaded" mode the height of the ball can be controlled with two c
     // Data
     [1.01], [0.08], [0], [0], [0.64], [0.4], [0.04], [5],
   ),
-  caption: [Experimentally determined Cascaded PID values],
+  caption: [PID values of the cascaded controller],
 )
