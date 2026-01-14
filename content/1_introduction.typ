@@ -36,13 +36,13 @@ The Floating Ball System consists of a vertical tube in which a lightweight tabl
     [Microcontroller], [#link(Arduino_Datasheet)[Arduino Uno R4 Minima]], [1], [20,72 €],
     [PWM Motor], [#link(PWM_Motor_Datasheet)[SAN ACE B97]], [1], [32,20 €],
     [Distance Sensor], [#link(VL53L1X_Datasheet)[VL53L1X TOF Sensor]], [1], [16,50€],
-    [Tube], [height variable], [1], [#marker[insert price here]],
+    [Tube and Base], [height/ width variable], [1], [70,35€],
     [Potentiometer], [#link(Potentiometer_Datasheet)[Bourns Potentiometer]], [1], [5,50€], 
     [Other], [Wires, etc.], [1], [3,90 €],
     
     // Footer
     table.hline(stroke: 1pt + dept-color),
-    [*Total*], [], [], [#marker[*insert total here*]]
+    [*Total*], [], [], [149,17€]
   ),
   caption: [BOM for the Prototype],
 )
