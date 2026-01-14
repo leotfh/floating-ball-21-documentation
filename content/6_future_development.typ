@@ -13,5 +13,5 @@ To make the system more user friendly an automatic PID tuning could be incorpora
 == Version check mode
 A version check mode could be implemented to ensure that the user is always using the latest version of the Simulink model. This could be done by sending a version number from the Arduino to the GUI and comparing it with the latest version available. If the versions do not match, a pop-up could inform the user about the outdated version and ask the user to rebuild and flash the simulink model.
 
-== Different GUI approaches
-The performance of the current GUI implementation is not perfect. Different approaches for the GUI could be explored, such as a web-based GUI or a standalone application. Another approach could be to use the Simulink external mode parameter tuning and visualization. This could possibly improve performance.
+== Evaluate different GUI frameworks to fix performance issues
+The performance of the current GUI implementation is not perfect. Different approaches for the GUI could be explored, such as a web-based GUI or a standalone application. Another approach could be to use the Simulink "external mode" parameter tuning and visualization. This could possibly improve performance.
