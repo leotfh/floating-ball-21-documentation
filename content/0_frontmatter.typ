@@ -1,6 +1,9 @@
 #import "../utils.typ": *
+#import "@preview/nth:1.0.1": *
 
 #set page(numbering: "i")
+
+#let my-date(date) = nth(date.day()) + date.display(" of [month repr:long] [year]")
 
 #align(center + horizon)[
   #image(
@@ -9,27 +12,22 @@
     height: 2cm,
     alt: "FH Logo Placeholder"
   )
-
   
-  #v(1cm)
+  #v(5cm)
   
-  //#text(size: 12pt, fill: dark-grey)[FH JOANNEUM] \
-  //#text(size: 14pt, weight: "bold", fill: dept-color)[Electronic and Computer Engineering]
-  
-  #v(2cm)
-  
-  #text(size: 24pt, weight: "bold")[Project Documentation] \
+  #text(size: 32pt, weight: "bold")[Project Documentation] \
   #v(0.5cm)
-  #text(size: 16pt)[Floating Ball 2.1]
+  #text(size: 24pt)[Floating Ball 2.1]
   
-  #v(3cm)
+  #v(5cm)
+  
   
   #grid(
     columns: (auto, auto),
     gutter: 1em,
-    align: left,
+    align: top + left,
     strong("Authors:"), [Max Dandler \ Lucas Fink \ Anto Dzicic \ Kristian Seiner \ Leo Traußnigg],
-    strong("Deadline:"), [14. Jänner 2026],
+    strong("Deadline:"), [#my-date(datetime.today())],
     strong("Version: "), [1.1]
   )
 ]

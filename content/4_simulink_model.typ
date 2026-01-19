@@ -123,7 +123,7 @@ The "Serial Receive" splits the input into several smaller parts and writes the 
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
     #align(center + horizon, text(fill: dept-color)[#image("img/general/Simulink_Model_Serial_Receive.png", width: 95%)])
   ],
-  caption: [Simulink Model Serial Transmit],
+  caption: [Simulink Model Serial Receive],
 )<Simulink_Serial_Receive>
 
 == Model Sampling frequency
