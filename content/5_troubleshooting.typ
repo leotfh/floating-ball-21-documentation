@@ -14,3 +14,9 @@ If the program seems to not flash correctly after pressing the "Build & Deploy" 
 
 == GUI slow or unresponsive
 This is a known issue and can be caused by various factors. One factor is, that App Designer runs in the same thread as MATLAB and therefore shares the same resources. If the GUI seems to be slow or unresponsive, try closing other applications that might be using a lot of system resources. Additionally, ensure that MATLAB has sufficient memory allocated and that no other heavy computations are running in the background.
+
+== Step response too long in RPM Mode
+When setting the height setpoint in RPM mode before clicking the step response button, the step response might be longer than expected. This is most likely caused by an incorrect conversion factor from height to RPM. Ensure that the conversion factor is set correctly according to the system's dimensions. If the problem persists, reconnect the arduino.
+
+== Model not responding to changes in PID parameters
+In older versions of the GUI, values smaller than 0.01 werer incorrectly converted in the serial string which led to a crash in the model itself. Resetiing the arduino and reconnecting it to the GUI should solve this issue.
