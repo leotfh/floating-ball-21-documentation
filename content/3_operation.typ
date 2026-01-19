@@ -71,7 +71,8 @@ To build and deploy the program manually, the Simulink file `FloatingBall.slx` n
 ==	App Designer Graphical User Interface (GUI)
 As mentioned before, the easiest way to start the program is to use the MATLAB App Designer. To start the App Designer follow the steps found in @App_Designer.
 
-=== GUI overview 
+#text(weight: "bold")[Overview]
+
 The GUI is divided into three main aspects. The user input section, the data output section and the mode selection. The output section consists of three different graphs. One for the height of the ball, one for the motor speed and one for the operating voltage of the motor. There is also a menu bar at the top left for "File" operations like saving the data, as well as an "Arduino" menu for building and deploying the program and opening the Simulink model and the "Info" menu for quick access to help.
 
 #figure(
