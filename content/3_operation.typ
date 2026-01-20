@@ -91,8 +91,6 @@ The "Step Response" button is used to measure and save the step response. It is 
 
 The "Refresh" button refreshes the available COM ports. This is useful if the Arduino was plugged in after starting the GUI or to connect to a different Arduino without restarting the GUI.
 
-#pagebreak()
-
 == Output section
 The output section is located on the right side of the GUI. Here three graphs show the height of the ball, the motor speed and the motor voltage over time. The graphs are updated in real-time when the Arduino is connected. A red line shows the desired setpoint.
 
