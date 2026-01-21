@@ -199,7 +199,7 @@ The following table shows the fine-tuned PID values for both controllers in the 
     [*$k_("p,motor")$*], [*$T_("i,motor")$*], [*$T_("d,motor")$*], [*$n_("motor")$*], [*$k_("p,height")$*], [*$T_("i,height")$*], [*$T_("d,height")$*], [*$n_("height")$*],
 
     // Data
-    [1.01], [0.08], [0], [0], [0.64], [0.4], [0.04], [5],
+    [1.01], [0.8], [0], [0], [0.64], [0.16], [0.1], [5],
   ),
   caption: [PID values of the cascaded controller],
 )
