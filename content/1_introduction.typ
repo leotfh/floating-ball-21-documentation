@@ -7,13 +7,20 @@
 #let Potentiometer_Datasheet = "https://4donline.ihs.com/images/VipMasterIC/IC/BOUR/BOUR-S-A0011028503/BOUR-S-A0011028503-1.pdf?hkey=6D3A4C79FDBF58556ACFDE234799DDF0"
 
 = Introduction
-This document serves as documentation and a guide for the Floating Ball System, developed by the Institute Electronic Engineering at FH JOANNEUM. 
+This document serves as documentation and a guide for the Floating Ball System, developed by the Institute Electronic Engineering at FH JOANNEUM.
 
 == Goal
-This project aims to show the principles of control engineering using a floating ball system. The objective is to enable students to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI).
+This project aims to show the principles of control engineering using a floating ball system. The objective is to enable students to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI). There was a previous version of the system, which was developed in 2024. This documentation focuses on the improvements and changes made in version 2.1, which was developed in 2025.
 
 == System Overview
 The Floating Ball System consists of a vertical tube in which a lightweight table tennis ball is suspended in the air by a PWM-controlled motor-driven fan at the bottom. The height of the ball is measured using a Time-of-Flight (TOF) distance sensor positioned at the top of the tube. A potentiometer allows users to set the height of the ball. The entire system is powered and managed by an Arduino Uno R4 Minima microcontroller, which interfaces with the motor, distance sensor, and potentiometer.
+
+#figure(
+  rect(width: 100%, height: 11cm, fill: light-grey, radius: 15pt)[
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/hardware_overview.png", width: 85%)])
+  ],
+  caption: [Overview of the Floating Ball System],
+)
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
