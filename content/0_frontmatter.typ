@@ -27,8 +27,8 @@
     gutter: 1em,
     align: top + left,
     strong("Authors:"), [Max Dandler \ Lucas Fink \ Anto Dzicic \ Kristian Seiner \ Leo Traußnigg],
-    strong("Deadline:"), [#my-date(datetime.today())],
-    strong("Version: "), [1.1]
+    strong("Date:"), [#my-date(datetime.today())],
+    strong("Version: "), [1.3]
   )
 ]
 
