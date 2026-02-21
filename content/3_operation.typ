@@ -1,7 +1,7 @@
 #import "../utils.typ": *
 
 =	Operating the Floating Ball System 
-After cloning the git repository and opening the project, the model must be built and deployed. This can be done with the Command Window or the MATLAB App Designer. It is recommended to use the App Designer since this method works better with different screen resolutions.
+After opening the project, the model must be built and deployed. This can be done with the Command Window or the MATLAB App Designer. It is recommended to use the App Designer, since this method works better with different screen resolutions and contains all the new features. The Command Window method is a legacy method and should only be used as a fallback if the App Designer method fails. The steps for both methods are described in the following sections.
 
 == Building, Deploying, Starting the Model using the App Designer GUI <App_Designer>
 To launch the App Designer open the `FloatingBallGUI.mlapp` file located in the GUI folder.
@@ -44,7 +44,7 @@ Watch the output window for a message like "Deployed code to target successfully
 
 
 ==	Building, Deploying, Starting the Model using the Command Window
-As this is a legacy method, it should only be used as a fallback if the previously described procedure fails.
+#marker[This method is not recommended and concidered legacy! Only use this method if the App Designer method fails.]
 
 === Building and Deploying automatically
 The easiest way to build the model and flash it onto the Arduino Uno R4 Minima is to type "`main`" into the MATLAB Command Window. This lets a pop-up window appear, which asks the user what should be done. The available options as shown in @Pop_up are "Build & Deploy", "Start GUI only" and "Cancel". When starting the FloatingBall System for the first time, it is advised to select the "Build and Deploy" option to ensure the right program is flashed on the Arduino. Note that "Start GUI only" start the old GUI which is not recommended to use.
@@ -77,7 +77,7 @@ The GUI is divided into three main aspects. The user input section, the data out
 
 #figure(
   rect(width: 100%, height: auto, fill: light-grey, radius: 15pt)[
-    #align(center + horizon, text(fill: dept-color)[#image("img/general/App_Designer_GUI.png", width: 95%)])
+    #align(center + horizon, text(fill: dept-color)[#image("img/general/GUI_overview.png", width: 100%)])
   ],
   caption: [MATLAB App Designer GUI],
 )<App_Designer_GUI>
@@ -85,7 +85,7 @@ The GUI is divided into three main aspects. The user input section, the data out
 Note, that the connection is closed when switching modes. Therefore, the Arduino must be reconnected after changing the mode.
 
 == Input section
-The input section is located on the lower left side of the GUI. Here the user can connect and disconnect the Arduino and set the desired parameters for the selected mode. 
+The input section is located on the lower left side of the GUI. Here, the user can connect and disconnect the Arduino and set the desired parameters for the selected mode. 
 
 The "Step Response" button is used to measure and save the step response. It is possible to measure the step response in "RPM" (Open Loop) and "Height Control" mode.
 
