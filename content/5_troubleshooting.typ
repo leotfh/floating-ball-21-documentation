@@ -20,3 +20,6 @@ When setting the height setpoint in RPM mode before clicking the step response b
 
 == Model not responding to changes in PID parameters
 In older versions of the GUI, values smaller than 0.01 werer incorrectly converted in the serial string which led to a crash in the model itself. Resetiing the arduino and reconnecting it to the GUI should solve this issue.
+
+== No response from height (ToF) sensor
+If the height sensor does not seem to be responding, ensure that it is properly connected to the Arduino and that the cables are fine. If nothing else works, try replacing the sensor as it might be defective. 
