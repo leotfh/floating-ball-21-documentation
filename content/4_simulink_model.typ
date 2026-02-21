@@ -45,66 +45,66 @@ Between the two motor control areas the "Distance Sensor" area can be found. Her
 
 The "VL53L1X_Driver" block is auto code generated with the IO Device Builder tool. This blocks links the Simulink Model with the `VL53L1X_Driver.cpp` file which is needed for the TOF distance sensor. This file can be found in "Main/Simulink/Sensor/VL53L1X_Driver". It is important to mention that the `VL53L1X_Driver.cpp` is programmed in such a way that the sampling frequency of the distance sensor is independent from the Simulink model sampling frequency. This was done to ensure a higher frequency for the inner controller (motor controller) of the cascaded controller. If the sampling frequency of the distance sensor needs to be changed the functions "sensor.setMeasurementTimingBudget()" and "sensor.startContinuous()" need to edited.
 
-#block(
+#figure(
+  kind: raw,
+  caption: [VL53L1X_Driver.cpp],
+  block(
   fill: light-grey,
   inset: 10pt,
   radius: 15pt,
   width: 100%,
   [
-    *VL53L1X_Driver.cpp:*
-    #set text(font: "Courier New", size: 10pt)
+      ```cpp
+      #include <Arduino.h>
+      #include <Wire.h>
+      #include <VL53L1X.h>
+      #include "VL53L1X_Driver.h"
 
-    ```cpp
-#include <Arduino.h>
-#include <Wire.h>
-#include <VL53L1X.h>
-#include "VL53L1X_Driver.h"
+      // global variables
+      VL53L1X sensor;
+      uint16_t lastDistance = 0;
+      bool sensorInitialized = false;
 
-// global variables
-VL53L1X sensor;
-uint16_t lastDistance = 0;
-bool sensorInitialized = false;
+      extern "C" {
 
-extern "C" {
+          void setupFunctionVL53L1X_Driver(uint16_t *blockParam, int paramSize) {
+              Wire.begin();
+              Wire.setClock(400000); // I2C 400kHz
 
-    void setupFunctionVL53L1X_Driver(uint16_t *blockParam, int paramSize) {
-        Wire.begin();
-        Wire.setClock(400000); // I2C 400kHz
+              sensor.setTimeout(500);
+              if (!sensor.init()) {
+                  sensorInitialized = false;
+                  return;
+              }
+              
+              sensorInitialized = true;
+              
+              // set Distance Mode (Short, Medium, Long)
+              sensor.setDistanceMode(VL53L1X::Short);
+              
+              // set Measurement Timing Budget  (min. 20ms for Short, 33ms for Medium/Long)
+              sensor.setMeasurementTimingBudget(20000);
 
-        sensor.setTimeout(500);
-        if (!sensor.init()) {
-            sensorInitialized = false;
-            return;
-        }
-        
-        sensorInitialized = true;
-        
-        // set Distance Mode (Short, Medium, Long)
-        sensor.setDistanceMode(VL53L1X::Short);
-        
-        // set Measurement Timing Budget  (min. 20ms for Short, 33ms for Medium/Long)
-        sensor.setMeasurementTimingBudget(20000);
+              sensor.startContinuous(20); 
+          }
 
-        sensor.startContinuous(20); 
-    }
+          void stepFunctionVL53L1X_Driver(uint16_t *distance, int size, uint16_t *blockParam, int paramSize) {
+              if (!sensorInitialized) {
+                  *distance = 0;
+                  return;
+              }
 
-    void stepFunctionVL53L1X_Driver(uint16_t *distance, int size, uint16_t *blockParam, int paramSize) {
-        if (!sensorInitialized) {
-            *distance = 0;
-            return;
-        }
-
-        // save most recent value
-        if (sensor.dataReady()) {
-            lastDistance = sensor.read(false); 
-        }
-        
-        // return most recent value
-        *distance = lastDistance;
-    }
-}
-    ```
-  ]
+              // save most recent value
+              if (sensor.dataReady()) {
+                  lastDistance = sensor.read(false); 
+              }
+              
+              // return most recent value
+              *distance = lastDistance;
+          }
+      }
+      ```
+  ])
 )
 
 == Serial Transmission
