@@ -19,4 +19,6 @@
 #include "content/5_troubleshooting.typ"
 #pagebreak()
 #include "content/6_future_development.typ"
+#pagebreak()
+#include "content/7_appendix.typ"
 //#pagebreak()
