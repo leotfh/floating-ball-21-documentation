@@ -7,7 +7,6 @@
 #let Potentiometer_Datasheet = "https://4donline.ihs.com/images/VipMasterIC/IC/BOUR/BOUR-S-A0011028503/BOUR-S-A0011028503-1.pdf?hkey=6D3A4C79FDBF58556ACFDE234799DDF0"
 
 = Introduction
-This document serves as documentation and a guide for the Floating Ball System, developed by the Institute Electronic Engineering at FH JOANNEUM.
 
 == Goal
 This project aims to show the principles of control engineering using a floating ball system. The objective is to enable students to learn how to use and parameterize PID controllers in MATLAB/Simulink and operate the system via a graphical user interface (GUI). There was a previous version of the system, which was developed in 2024. This documentation focuses on the improvements and changes made in version 2.1, which was developed in 2025.
@@ -53,3 +52,6 @@ The Floating Ball System consists of a vertical tube in which a lightweight tabl
   ),
   caption: [BOM for the Prototype],
 )
+
+== Physical Asset Management
+The physical assets for the Floating Ball System are stored in the lab of the Institute Electronic Engineering at FH JOANNEUM in Graz (MotionLab) or in Kapfenberg. Spare components are stored in a designated storage area in the lab. The system is assembled and disassembled as needed for transport. If questions regarding the physical assets arise, contact #link("mailto:michael.salloker@fh-joanneum.at")[Michael Salloker] or #link("mailto:andreas.laesser@fh-joanneum.at")[Andreas Läßer].
