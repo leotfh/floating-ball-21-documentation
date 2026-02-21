@@ -103,3 +103,37 @@
 
   doc
 }
+
+#let callout(type: "note", title: auto, body) = {
+  // Define colors matching your image
+  let configs = (
+    note:      (color: rgb("#1f6feb"), icon: "ⓘ"),
+    important: (color: rgb("#A371F7"), icon: "💬"),
+    warning:   (color: rgb("#D29922"), icon: "⚠️"),
+    tip:       (color: rgb("#3FB950"), icon: "💡"),
+    caution:   (color: rgb("#F85149"), icon: "🛑"),
+  )
+
+  // Fetch the current config based on the type, default to "note"
+  let conf = configs.at(type, default: configs.note)
+  
+  // Format the title (capitalize the first letter if no custom title is provided)
+  let actual-title = if title == auto { 
+    upper(type.first()) + type.slice(1) 
+  } else { 
+    title 
+  }
+
+  // Create the visual block
+  block(
+    width: 100%,
+    stroke: (left: 2pt + conf.color), // The thick colored line on the left
+    inset: (left: 1em, top: 0.5em, bottom: 0.5em), // Padding inside the block
+    // fill: conf.color.lighten(90%), // Optional: Uncomment this line for a subtle background tint
+    [
+      #text(fill: conf.color, weight: "bold")[#strong[#conf.icon] #h(0.2em) #actual-title]
+
+      #body
+    ]
+  )
+}
