@@ -26,7 +26,7 @@
     columns: (auto, auto),
     gutter: 1em,
     align: top + left,
-    strong("Authors:"), [Max Dandler \ Lucas Fink \ Anto Dzicic \ Kristian Seiner \ Leo Traußnigg],
+    strong("Authors:"), [Max Dandler \ Lucas Fink \ Anto Dzidzic \ Kristian Seiner \ Leo Traußnigg],
     strong("Date:"), [#my-date(datetime.today())],
     strong("Version: "), [1.3]
   )
